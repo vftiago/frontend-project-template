@@ -4,6 +4,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:prettier/recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended"
@@ -15,8 +16,19 @@
     "sourceType": "module",
     "project": ["./tsconfig.json", "./tsconfig.node.json"]
   },
-  "plugins": ["react-refresh"],
+  "plugins": ["react", "react-refresh"],
   "rules": {
+    "react/jsx-sort-props": [
+      "warn",
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "shorthandLast": false,
+        "ignoreCase": true,
+        "noSortAlphabetically": false,
+        "reservedFirst": true
+      }
+    ],
     "react-refresh/only-export-components": [
       "warn",
       { "allowConstantExport": true }
